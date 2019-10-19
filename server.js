@@ -1,11 +1,22 @@
+// Node Dependencies
 var express = require('express');
-var mysql = require('mysql');
-var exphbs = require('express-handlebars');
+var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
+
+// Open Server
+var PORT = process.env.PORT || 8080;
 var app = express();
-var PORT = process.env.PORT || 3000;
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.use(express.static('public'));
+// app.use(express.static('public'));
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// Handlebars
+var exphbs = require('express-handlebars');
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
-var connect = mysql.createConnection({});
-app.listen(PORT, function() {
-  console.log('Server listing on:' + PORT);
+var router = require('./controllers/premiereController.js');
+app.use('/', router);
+app.listen(PORT, function() 
+{
+  console.log("App listening on PORT " + PORT);
 });
