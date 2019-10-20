@@ -24,23 +24,16 @@ router.get('/index', function (req, res)
 
 
 
-// Create a New Burger
-router.get('/premiere/model', function (req, res) 
+
+router.get('/index/model', function (req, res) 
 {
-  burger.selectOne(req.params.model, function() 
+  premiere.selectOne(req.body.model, function() 
   {
     res.redirect('/index');
   });
 });
 
-// // Devour a Burger
-// router.post('/burger/eat/:id', function (req, res) 
-// {
-//   burger.updateOne(req.params.id, function() 
-//   {
-//     res.redirect('/index');
-//   });
-// });
+
 router.get('/about', function (req, res) 
 {
     premiere.selectAllinf(function(data) 
@@ -48,6 +41,17 @@ router.get('/about', function (req, res)
     var hbsObject = { info: data };
     //console.log(hbsObject);
     res.render('about', hbsObject);
+  });
+});
+
+// dealer
+router.get('/dealer', function (req, res) 
+{
+    premiere.selectAllDealer(function(data) 
+  {
+    var hbsObject = [{ info: data },{cars: data}];
+    //console.log(hbsObject);
+    res.render('dealer', hbsObject);
   });
 });
 // Export routes

@@ -21,12 +21,22 @@ var orm = {
       });
     },
   selectOne: function (model, cb) {
-    connection.query("SELECT model FROM  info set ?",
+    connection.query("SELECT model FROM info WHERE model ?  ",
       {
-        photo: photo,
+       
         model: model,
-        drive: drive,
+        
       }, function (err, result) {
+        if (err) {
+          throw err;
+        }
+
+        cb(result);
+      });
+  },
+  selectAllDealer: function ( cb) {
+  
+    connection.query( "SELECT * FROM cars JOIN info ON cars.model = info.model"  , function (err, result) {
         if (err) {
           throw err;
         }
@@ -35,19 +45,6 @@ var orm = {
       });
   }
 
-//   updateOne: function (burgerID, cb) {
-   
-//     connection.query(
-//       "UPDATE  burgers SET ? WHERE ?" ,[{ devoured: true }, { id: burgerID }]
-
-//       , function (err, result) {
-//         if (err) {
-//           throw err;
-//         }
-
-//         cb(result);
-//       });
-//   },
 
 
 };

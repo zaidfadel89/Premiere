@@ -4,9 +4,10 @@
 
  <label>Browser Select</label>
   {{#each cars}}
- <form action="/about/{{model}}" method="GET">
+ <form action="https://www.{{make}}/{{model}}" method="GET">
   
-    <input type="submit" value="{{model}}">
+    <input type="submit" value="{{make}}{{model}}">
     
 </form>
 {{/each}}
+

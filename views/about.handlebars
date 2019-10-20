@@ -1,8 +1,21 @@
 <h2>car!</h2>
 
 
+   
+      <input id="myInput" type="text" placeholder="Search..">
+<br><br>
+    
+  
+<br>
+
 {{#each info}}
-<li>{{id}}. {{model}} .
-    <img class="someClass" src="{{photo}}" width="200" height="200">. {{trany}}
-</li>
+<div class="one">
+   
+<li><a href="https://www.carmax.com/cars?search={{model}}"><img class="someClass" src="{{photo}}" width="200" height="200"></a>
+ {{model}}</li>
+ 
+
+</div>
 {{/each}}
+
+
