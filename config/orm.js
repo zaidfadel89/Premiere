@@ -1,55 +1,50 @@
 // Import MySQL connection.
-var connection = require("../config/connection.js");
-
+var connection = require('../config/connection.js');
 
 // Object for all our SQL statement functions.
 var orm = {
-  selectAll: function (cb) {
-    connection.query("SELECT * FROM cars ", function (err, result) {
+  selectAll: function(cb) {
+    connection.query('SELECT * FROM cars ', function(err, result) {
       if (err) {
         throw err;
       }
       cb(result);
     });
   },
-    selectAllinf: function (cb) {
-      connection.query("SELECT * FROM  info", function (err, result) {
-        if (err) {
-          throw err;
-        }
-        cb(result);
-      });
-    },
-  selectOne: function (model, cb) {
-    connection.query("SELECT model FROM  info set ?",
-      {
-        photo: photo,
-        model: model,
-        drive: drive,
-      }, function (err, result) {
-        if (err) {
-          throw err;
-        }
-
-        cb(result);
-      });
+  selectAllinf: function(cb) {
+    connection.query('SELECT * FROM  info', function(err, result) {
+      if (err) {
+        throw err;
+      }
+      cb(result);
+    });
+  },
+  selectOne: function(model, cb) {
+    console.log('model: ' + model);
+    var query = 'SELECT photo, drive FROM  info where ?';
+    console.log('query *****: ' + query);
+    connection.query(query, { model: model }, function(err, result) {
+      if (err) {
+        throw err;
+      }
+      console.log(result);
+      cb(result);
+    });
   }
 
-//   updateOne: function (burgerID, cb) {
-   
-//     connection.query(
-//       "UPDATE  burgers SET ? WHERE ?" ,[{ devoured: true }, { id: burgerID }]
+  //   updateOne: function (burgerID, cb) {
 
-//       , function (err, result) {
-//         if (err) {
-//           throw err;
-//         }
+  //     connection.query(
+  //       "UPDATE  burgers SET ? WHERE ?" ,[{ devoured: true }, { id: burgerID }]
 
-//         cb(result);
-//       });
-//   },
+  //       , function (err, result) {
+  //         if (err) {
+  //           throw err;
+  //         }
 
-
+  //         cb(result);
+  //       });
+  //   },
 };
 
 // Export the orm object for the model (cat.js).
