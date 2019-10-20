@@ -1,5 +1,6 @@
 // Node Dependencies
 var express = require('express');
+var gulp = require('gulp');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
@@ -12,11 +13,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Handlebars
 var exphbs = require('express-handlebars');
-app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 var router = require('./controllers/premiereController.js');
 app.use('/', router);
-app.listen(PORT, function() 
-{
-  console.log("App listening on PORT " + PORT);
+app.listen(PORT, function() {
+  console.log('App listening on PORT ' + PORT);
 });
