@@ -18,12 +18,24 @@ var premiere = {
     orm.selectOne(model, function(res) {
       cb(res);
     });
+
+  },
+  
+  selectAllDealer: function(cb) {
+    orm.selectAllDealer(function(res) {
+      cb(res);
+    });
+  }
+
+  
+
   }
   //   updateOne: function(burger_id, cb) {
   //     orm.updateOne( burger_id, function(res) {
   //       cb(res);
   //     });
   //   }
+
 };
 
 // Export the database functions for the controller (catsController.js).

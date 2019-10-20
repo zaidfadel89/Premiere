@@ -18,6 +18,20 @@ router.get('/index', function(req, res) {
   });
 });
 
+
+
+
+router.get('/index/model', function (req, res) 
+{
+  premiere.selectOne(req.body.model, function() 
+  {
+    res.redirect('/index');
+  });
+});
+
+
+
+=======
 // Create a New Burger
 router.get('/premiere/model/:model', function(req, res) {
   premiere.selectOne(req.params.model, function(data) {
@@ -30,9 +44,24 @@ router.get('/premiere/model/:model', function(req, res) {
 
 router.get('/about', function(req, res) {
   premiere.selectAllinf(function(data) {
+
     var hbsObject = { info: data };
     res.render('about', hbsObject);
   });
 });
 
+// dealer
+router.get('/dealer', function (req, res) 
+{
+    premiere.selectAllDealer(function(data) 
+  {
+    var hbsObject = [{ info: data },{cars: data}];
+    //console.log(hbsObject);
+    res.render('dealer', hbsObject);
+  });
+});
+// Export routes
 module.exports = router;
+=======
+
+

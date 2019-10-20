@@ -1,3 +1,40 @@
+
+body{
+    background: #fff;
+  }
+  .box {
+    transition: box-shadow .3s;
+    width: 300px;
+    height: 500px;
+    margin: 50px;
+    border-radius:10px;
+    border: 1px solid #ccc;
+    background: #fff;
+    float: left;
+    
+  }
+  .box:hover {
+    box-shadow: 0 0 11px rgba(33,33,33,.2); 
+  }
+
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
 body {
   background-image: url('https://f1.media.brightcove.com/7/1578086878/1578086878_6093482616001_6093241744001-vs.jpg?pubId=1578086878&videoId=6093241744001');
 }
+

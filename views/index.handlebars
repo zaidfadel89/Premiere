@@ -2,6 +2,17 @@
 
 
 
+
+ <label>Browser Select</label>
+  {{#each cars}}
+ <form action="https://www.{{make}}/{{model}}" method="GET">
+  
+    <input type="submit" value="{{make}}{{model}}">
+    
+</form>
+{{/each}}
+
+=======
 <label>Browser Select</label> --}}
 
 <!DOCTYPE html>
@@ -496,3 +507,4 @@
 </body>
 
 </html>
+
