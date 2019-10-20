@@ -1,5 +1,5 @@
 {
-  "name": "newProhect2-",
+  "name": "newprohect2-",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
@@ -11,11 +11,22 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "bulma": "^0.8.0",
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
     "method-override": "^3.0.0",
     "mysql": "^2.17.1"
   },
-  "devDependencies": {},
-  "description": ""
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  },
+  "description": "HI how are you",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zaidfadel/newProject-2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zaidfadel/newProject-2/issues"
+  },
+  "homepage": "https://github.com/zaidfadel/newProject-2#readme"
 }
