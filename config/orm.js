@@ -12,18 +12,19 @@ var orm = {
     });
   },
 
-  selectAllDealer: function ( cb) {
-  
-    connection.query( "SELECT * FROM cars JOIN info ON cars.model = info.model"  , function (err, result) {
+  selectAllDealer: function(cb) {
+    connection.query(
+      'SELECT * FROM cars JOIN info ON cars.model = info.model',
+      function(err, result) {
         if (err) {
           throw err;
         }
 
         cb(result);
-      });
-  }
+      }
+    );
+  },
 
-=======
   selectAllinf: function(cb) {
     connection.query('SELECT * FROM  info', function(err, result) {
       if (err) {
@@ -49,7 +50,6 @@ var orm = {
 
   //     connection.query(
   //       "UPDATE  burgers SET ? WHERE ?" ,[{ devoured: true }, { id: burgerID }]
-
 
   //       , function (err, result) {
   //         if (err) {
