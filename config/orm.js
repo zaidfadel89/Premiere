@@ -12,6 +12,51 @@ var orm = {
     });
   },
 
+  // <<<<<<< HEAD
+  //   selectAllDealer: function(cb) {
+  //     connection.query(
+  //       'SELECT * FROM cars JOIN info ON cars.model = info.model',
+  //       function(err, result) {
+  // =======
+
+  selectAllinf: function(cb) {
+    connection.query('SELECT * FROM  info', function(err, result) {
+      if (err) {
+        throw err;
+      }
+      cb(result);
+    });
+  },
+  selectOne: function(model, cb) {
+    // console.log('model: ' + model);
+    var query = 'SELECT * FROM  info where ?';
+    // console.log('query *****: ' + query);
+    connection.query(query, { model: model }, function(err, result) {
+      if (err) {
+        throw err;
+      }
+      console.log(result);
+      cb(result);
+    });
+  },
+
+  insertAll: function(cb) {
+    connection.query(
+      ' INSERT INTO  tableall SELECT cars.id,cars.make, cars.model,cars.eng_dscr,info.id,info.photo,info.model,info.drive,info.fuelType1,info.VClass,info.trany,info.createdOn,info.fuelCost08 FROM cars INNER JOIN info on cars.model = info.model ',
+      function(err, result) {
+        if (err) {
+          throw err;
+        }
+
+        cb(result);
+      }
+    );
+  },
+
+  // selectAllinf: function(cb) {
+  //   connection.query('SELECT * FROM  info', function(err, result) {});
+  // },
+
   selectAllDealer: function(cb) {
     connection.query(
       'SELECT * FROM cars JOIN info ON cars.model = info.model',
@@ -25,41 +70,32 @@ var orm = {
     );
   },
 
-  selectAllinf: function(cb) {
-    connection.query('SELECT * FROM  info', function(err, result) {
+  delete: function(table, condition, cb) {
+    var queryString = 'DELETE FROM ' + table;
+    queryString += ' WHERE ';
+    queryString += condition;
+
+    connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
       }
-      cb(result);
-    });
-  },
-  selectOne: function(model, cb) {
-    console.log('model: ' + model);
-    var query = 'SELECT photo, drive FROM  info where ?';
-    console.log('query *****: ' + query);
-    connection.query(query, { model: model }, function(err, result) {
-      if (err) {
-        throw err;
-      }
-      console.log(result);
+
       cb(result);
     });
   }
 
-  //   updateOne: function (burgerID, cb) {
+  // <<<<<<< HEAD
+  //   //   updateOne: function (burgerID, cb) {
 
-  //     connection.query(
-  //       "UPDATE  burgers SET ? WHERE ?" ,[{ devoured: true }, { id: burgerID }]
+  //   //     connection.query(
+  //   //       "UPDATE  burgers SET ? WHERE ?" ,[{ devoured: true }, { id: burgerID }]
 
-  //       , function (err, result) {
-  //         if (err) {
-  //           throw err;
-  //         }
-
-  //         cb(result);
-  //       });
-  //   },
+  //   //       , function (err, result) {
+  //   //         if (err) {
+  //   //           throw err;
+  //   //         }
+  // =======
+  // >>>>>>> 203faec08b94441bc010e29057cc0999de9fa299
 };
 
-// Export the orm object for the model (cat.js).
 module.exports = orm;
