@@ -61,14 +61,17 @@ router.post('/register', function(req, res) {
 });
 router.get('/', function(req, res) {
   res.redirect('/index');
+  // res.render('index');
 });
 
 // Index Page
 router.get('/index', function(req, res) {
   premiere.selectAllinf(function(data) {
+    // console.log(data);
+
     var list = { info: data };
     //console.log(hbsObject);
-    res.render('/index', list);
+    res.render('index', list);
   });
 });
 
