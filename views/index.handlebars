@@ -1,87 +1,138 @@
+<div id="navbar" class="navbar-fixed scrollspy">
+    <nav class="pink lighten-1">
+        <div class="nav-wrapper container">
+            <div class="container"> <a href="#navbar" class="brand-logo mLogo" style="margin-top: 15px;  color: white;
+  text-shadow: 5px 5px 6px black, 0 0 25px blue, 0 0 5px darkblue"> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Premiere</a></div>
 
-<div class="container section scrollspy" id="themes">
-    <div class="section">
-        <br>
-        <br>
-         <br>
-        
-        <nav>
-    <div class="nav-wrapper">
-      <form>
-        <div class="input-field">
-          <input id="search" type="search" >
-          {{!-- <input id="myInput" type="text" placeholder="Search.."> --}}
-          <label   class="label-icon" for="search"><i class="material-icons">search</i></label>
-          <i class="material-icons">close</i>
+            <a style="" href="#" data-activates="mobile-demo" class="button-collapse"><i
+                    class="mdi-navigation-menu"></i></a>
+            <ul class="right hide-on-med-and-down">
+
+                <li><a class="head-link" style=" text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF" href="#themes">View
+                        cars</a></li>
+                <li><a class="head-link" style=" text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF"
+                        href="#snippets">photos</a></li>
+
+            </ul>
+
         </div>
-      </form>
-    </div>
-  </nav>
+    </nav>
+</div>
 
-
-        <div id="overflowTest">
-
-
-            {{#each info}}
-            <div class="row">
-
-               
-
-                    <!--col-->
-                   
-<br>
- 
-                    <div class="col s12 m6">
-                        <div class="card">
-                            <div class="card-image waves-effect waves-block waves-light">
-                                   <div class="one ">
-                                <li><a href="about/model/{{model}}"><img class="someClass" src="{{photo}}" width="200"
-                                            height="200"></a>{{model}}</li>
-                                   </div>
-                            </div>
-                            <div class="card-content">
-                                <span class="card-title activator grey-text text-darken-4"><i
-                                        class="mdi-navigation-more-vert right"></i></span>
-                                <br>
-                                
-                            </div>
-                            <div class="card-reveal">
-                                <span class="card-title grey-text text-darken-4">seal $ {{fuelCost08}}<i
-                                        class="mdi-navigation-close right">{{trany}}</i><p>hjhjhjhjhjhjhjhjhj</p></span>
-                                
-                               
-                            </div>
-                        </div>
-                        <!--card-->
-                    </div> 
-                    <!--col-->
-               
-                <!--row-->
-
+<div id="index-banner" class="parallax-container valign-wrapper">
+    <div class="section no-pad-bot">
+        <div class="valign">
+            <br>
+            {{!-- &nbsp &nbsp &nbsp  --}}
+            <h1 class="header center titleFont" style="color: #ec407a "> &nbsp &nbsp
+                &nbsp &nbsp
+                &nbsp &nbsp &nbsp &nbsp
+                &nbsp Materialize Themes</h1>
+            <div class="row center">
+                <h5 class="header col s12 subTitleFont" style="color: #ec407a;"> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                    &nbsp &nbsp &nbsp &nbsp &nbsp Free themes built
+                    using a modern
+                    responsive front-end framework <a target="_blank" style=" color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue" href="http://materializecss.com/">
+                        "Materialize"</a> <br>which is based on
+                    <a style=" color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue"
+                        href="http://www.google.com/design/spec/material-design/introduction.html">"Material
+                        Design"</a> </h5>
             </div>
-            {{/each}}
+            <div class="row center">
+                &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                &nbsp
+                &nbsp &nbsp &nbsp &nbsp
+                <a href="#themes" class="btn-large waves-effect waves-light head-link"
+                    style="background-color: #ec407a">View themes</a>
+            </div>
+            <br><br>
         </div>
     </div>
-</div>
+    <div class="parallax"><img src="data:image/gif;base64,R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+            alt="Unsplashed background img 2"
+            style="background-image: url(&quot;images/newpink.jpg&quot;); bottom: -342.162px; display: block;">
+
+        <div class="container section scrollspy" id="themes">
+            <div class="section">
+                <br>
+                <br>
+                <br>
+
+                <nav>
+                    <div class="nav-wrapper">
+                        <form>
+                            <div class="input-field">
+                                <input id="search" type="search">
+                                {{!-- <input id="myInput" type="text" placeholder="Search.."> --}}
+                                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                                <i class="material-icons">close</i>
+                            </div>
+                        </form>
+                    </div>
+                </nav>
+
+
+                <div id="overflowTest">
+
+
+                    {{#each info}}
+                    <div class="row">
 
 
 
+                        <!--col-->
+
+                        <br>
+
+                        <div class="col s12 m6">
+                            <div class="card">
+                                <div class="card-image waves-effect waves-block waves-light">
+                                    <div class="one ">
+                                        <li><a href="about/model/{{model}}"><img class="someClass" src="{{photo}}"
+                                                    width="200" height="200"></a>{{model}}</li>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <span class="card-title activator grey-text text-darken-4"><i
+                                            class="mdi-navigation-more-vert right"></i></span>
+                                    <br>
+
+                                </div>
+                                <div class="card-reveal">
+                                    <span class="card-title grey-text text-darken-4">seal $ {{fuelCost08}}<i
+                                            class="mdi-navigation-close right">{{trany}}</i>
+                                        <p>hjhjhjhjhjhjhjhjhj</p>
+                                    </span>
 
 
+                                </div>
+                            </div>
+                            <!--card-->
+                        </div>
+                        <!--col-->
 
-<footer class="page-footer" style="background-color: #ec407a">
+                        <!--row-->
 
-    <div class="footer-copyright">
-        <div class="container">
-            <p>Copyright © Materialize themes</p>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
         </div>
-    </div>
-</footer>
 
 
 
 
-<div class="hiddendiv common"></div>
-<div class="drag-target"
-    style="left: 0px; touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-</div>
+
+
+        <footer class="page-footer" style="background-color: #ec407a">
+
+            <div class="footer-copyright">
+                <div class="container">
+                    <p>Copyright © Materialize themes</p>
+                </div>
+            </div>
+        </footer>

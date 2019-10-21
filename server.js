@@ -1,9 +1,9 @@
 // Node Dependencies
 var express = require('express');
-var gulp = require('gulp');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
-
+var initializePassport = require('./passport-config');
+var bcrpt = require('bcrypt');
 // Open Server
 var PORT = process.env.PORT || 8080;
 var app = express();
