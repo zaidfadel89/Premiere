@@ -1,77 +1,105 @@
- <div class="row">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s6">
-          <input  id="make" type="text" class="validate">
-          <label for="make">Make</label>
-        </div>
-        <div class="input-field col s6">
-          <input id="model" type="text" class="validate">
-          <label for="model">Model</label>
-        </div>
+
+
+<div class="container section scrollspy" id="themes">
+  <div id="overflowTest">
+<div class="row">
+  <form action="dealer/create" method="POST">
+    <div class="row">
+      <div class="input-field col s6">
+        <input id="make" type="text" class="validate">
+        <label for="make">Make</label>
       </div>
-      
-      <div class="row">
-        <div class="input-field col s6">
-          <input id="eng_dscr" type="password" class="validate">
-          <label for="eng_dscr">eng dscr</label>
-        </div>
-     
-     
-        <div class="input-field col s6">
-          <input id="photo" type="email" class="validate">
-          <label for="photo">Photo</label>
-        </div>
+      <div class="input-field col s6">
+        <input id="model" type="text" class="validate">
+        <label for="model">Model</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s6">
+        <input id="eng_dscr" type="text" class="validate">
+        <label for="eng_dscr">eng dscr</label>
       </div>
 
-      <div class="row">
-        <div class="input-field col s6">
-          <input id="drive" type="password" class="validate">
-          <label for="drive">Drive</label>
-        </div>
-     
-     
-        <div class="input-field col s6">
-          <input id="fuelType1" type="email" class="validate">
-          <label for="fuelType1">fuelType1</label>
-        </div>
+
+      <div class="input-field col s6">
+        <input id="photo" type="text" class="validate">
+        <label for="photo">Photo</label>
       </div>
-      
-      <div class="row">
-        <div class="input-field col s6">
-          <input id="VClass" type="password" class="validate">
-          <label for="VClass">VClass</label>
-        </div>
-     
-        <div class="input-field col s6">
-          <input id="trany" type="email" class="validate">
-          <label for="trany">trany</label>
-        </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s6">
+        <input id="drive" type="text" class="validate">
+        <label for="drive">Drive</label>
       </div>
 
-      <div class="row">
-        <div class="input-field col s6">
-          <input id="createdOn" type="password" class="validate">
-          <label for="createdOn">createdOn</label>
-        </div>
-     
-        <div class="input-field col s6">
-          <input id="fuelCost08" type="email" class="validate">
-          <label for="fuelCost08">fuelCost08</label>
-        </div>
+
+      <div class="input-field col s6">
+        <input id="fuelType1" type="text" class="validate">
+        <label for="fuelType1">fuelType1</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s6">
+        <input id="VClass" type="text" class="validate">
+        <label for="VClass">VClass</label>
       </div>
 
-    </form>
-  </div>
-        
+      <div class="input-field col s6">
+        <input id="trany" type="text" class="validate">
+        <label for="trany">trany</label>
+      </div>
+    </div>
 
-{{!-- <h1>h1</h1>
-         {{#each cars.info}}
-<div class="box">
-<li>
- <a href="https://www.carmax.com/cars?search={{model}}"> <img class="someClass" src="{{photo}}" width="200" height="200"></a>
-  {{id}}.<div class="searc" >{{model}}</div>
- . {{trany}}
-</li>
+    <div class="row">
+      <div class="input-field col s6">
+        <input id="createdOn" type="text" class="validate">
+        <label for="createdOn">createdOn</label>
+      </div>
+
+      <div class="input-field col s6">
+        <input id="fuelCost08" type="text" class="validate">
+        <label for="fuelCost08">fuelCost08</label>
+      </div>
+    </div>
+ <button class="waves-effect waves-light btn" type="submit">Add car</button>
+  </form>
 </div>
-{{/each}} --}}
+
+</div>
+</div>
+
+
+ 
+<div class="container section scrollspy" id="themes">
+    <div class="section">
+      <nav>
+    <div class="nav-wrapper">
+      <form>
+        <div class="input-field">
+          <input id="search" type="search" >
+          {{!-- <input id="myInput" type="text" placeholder="Search.."> --}}
+          <label   class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons">close</i>
+        </div>
+      </form>
+    </div>
+  </nav>
+<div id="overflowTest">
+  
+{{#each info}}
+   <ul id="myList">
+  <li> 
+     <img class="someClass" src="{{photo}}" width="200"
+        height="200">{{model}}<button class="delete waves-effect waves-light btn" data-id="{{this.id}}">DELETE!</button></li>
+    
+  <br>
+</ul>
+{{/each}}
+
+
+</div>
+</div>
+</div>
