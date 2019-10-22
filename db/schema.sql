@@ -1,6 +1,6 @@
-CREATE database `oqgf306b39x9ybxi`;
+CREATE database `top_vehicle`;
 
-USE `oqgf306b39x9ybxi`;
+USE `top_vehicle`;
 
 CREATE TABLE cars (
   id INT NOT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE info (
   fuelCost08 INT(100) NULL,
   PRIMARY KEY (id)
 );
-USE `oqgf306b39x9ybxi`;
+-- USE `top_vehicle`;
 
 CREATE TABLE user(
 id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
