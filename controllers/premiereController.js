@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var premiere = require('../models/premiere.js');
 var bcrypt = require('bcrypt');
-
+const login = [];
 const users = [];
 //Setup Routes
 
@@ -11,7 +11,20 @@ const users = [];
 router.get('/login', function(req, res) {
   res.render('login.handlebars');
 });
-router.post('/login', function(req, res) {});
+router.post('/login', function(req, res) {
+  bcrypt.hash(req.body.password, 10, function(err, hash) {
+    var newlogin = {
+      email: req.body.email,
+      password: hash
+    };
+
+    console.log(newlogin);
+    login.push(newlogin);
+    console.log('login array');
+    console.log(login);
+    res.render('index');
+  });
+});
 router.get('/register', function(req, res) {
   res.render('register.handlebars');
 });
@@ -24,7 +37,7 @@ router.post('/register', function(req, res) {
       password: hash
     };
 
-    // console.log(newUser);
+    console.log(newUser);
     users.push(newUser);
     console.log('users array');
     console.log(users);

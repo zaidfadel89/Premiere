@@ -34,6 +34,11 @@ var premiere = {
     orm.delete('info', condition, function(res) {
       cb(res);
     });
+  },
+  create: function(cols, vals, cb) {
+    orm.create('users', cols, vals, function(res) {
+      cb(res);
+    });
   }
 };
 module.exports = premiere;
