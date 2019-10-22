@@ -31,33 +31,7 @@ router.post('/register', function(req, res) {
     res.render('login');
   });
 
-  // console.log('hp ', hashedPassword);
-
-  // res.redirect('/login');
-
-  // try {
-  //   const hashedPassword = bcrypt.hash(req.body.password, 10);
-  //   // console.log('hp ', hashedPassword);
-  //   console.log('we are in the try');
-  //   var newUser = {
-  //     name: req.body.name,
-  //     email: req.body.email,
-  //     password: hashedPassword
-  //   };
-
-  //   users.push(newUser);
-
-  //   // users.push({
-  //   //   name: req.body.name,
-  //   //   email: req.body.email,
-  //   //   password: hashedPassword
-  //   // });
-  //   console.log('users array ', users);
-  //   res.redirect('/login');
-  // } catch {
-  //   res.redirect('/register');
-  // }
-  // })();
+  
 });
 router.get('/', function(req, res) {
   res.redirect('/index');
@@ -69,7 +43,7 @@ router.get('/index', function(req, res) {
   premiere.selectAllinf(function(data) {
     // console.log(data);
 
-    var list = { info: data };
+    var list = { cars: data };
     //console.log(hbsObject);
     res.render('index', list);
   });
@@ -80,43 +54,51 @@ router.get('/about/model/:model', function(req, res) {
   premiere.selectOne(req.params.model, function(data) {
     // console.log('model name in routes: ' + req.params.model);
     // console.log('data in premier/models route: ' + JSON.stringify(data));
-    var hbsObject = { info: data };
+    var hbsObject = { cars: data };
     res.render('about', hbsObject);
   });
 });
 
-// <<<<<<< HEAD
-// router.get('/about', function(req, res) {
-//   premiere.selectAllinf(function(data) {
-//     var hbsObject = { info: data };
-//     res.render('about', hbsObject);
-//   });
-// });
 
-// // dealer
-// router.get('/dealer', function(req, res) {
-//   premiere.selectAllDealer(function(data) {
-//     var hbsObject = [{ info: data }, { cars: data }];
-//     //console.log(hbsObject);
-// =======
+
+
 
 // dealer
+// router.post('/dealer/add', function(req, res) {
+//   console.log("user all: " +req.body.all);
+//     premiere.insertDealer(req.body.all, function(results){
+//       console.log("result after commenting: " +results);
+//       res.redirect("dealer")
+//     })
+//   })
+router.post("/dealer/add", function(req, res) {
+  console.log(JSON.stringify(req.body))
+  premiere.create([
+    "carId", "make", "model", "engDscr", "photo", "fuelType1", "VClass", "trany", "createdOn", "fuelCost08"
+  ], [
+    req.body.carId, req.body.make, req.body.model, req.body.engDscr, req.body.photo, req.body.fuelType1, req.body.VClass, req.body.trany, req.body.createdOn, req.body.fuelCost08
+  ], function(result) {
+    console.log("result after commenting: " + result);
+    res.redirect("/dealer")
+  });
+});
+
+
 router.get('/dealer', function(req, res) {
-  premiere.selectAllDealer(function(data) {
-    var hbsObject = { info: data, cars: data };
+  premiere.selectAllinf(function(data) {
+    var hbsObject = {  cars: data };
     //console.log(hbsObject);
     res.render('dealer', hbsObject);
   });
 });
 
-router.post('/dealer/create', function(req, res) {
-  premiere.insertAll(req.body.model, function() {
-    var hbsObject = { tableall: data };
-    console.log('model name in routes: ' + req.body.model);
-    console.log('data in premier/models route: ' + JSON.stringify(data));
-    res.render('dealer', hbsObject);
-  });
-});
+router.post("/about/model/:model", function(req, res){
+  console.log("user comment: " +req.body.comment);
+  premiere.insertComment(req.body.comment, function(results){
+    console.log("result after commenting: " +results);
+    res.redirect('about')
+  })
+})
 
 router.delete('/dealer/create/:id', function(req, res) {
   var condition = 'id = ' + req.params.id;

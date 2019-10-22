@@ -1,24 +1,4 @@
-<div id="navbar" class="navbar-fixed scrollspy">
-    <nav class="pink lighten-1">
-        <div class="nav-wrapper container">
-            <div class="container"> <a href="#navbar" class="brand-logo mLogo" style="margin-top: 15px;  color: white;
-  text-shadow: 5px 5px 6px black, 0 0 25px blue, 0 0 5px darkblue"> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Premiere</a></div>
 
-            <a style="" href="#" data-activates="mobile-demo" class="button-collapse"><i
-                    class="mdi-navigation-menu"></i></a>
-            <ul class="right hide-on-med-and-down">
-
-                <li><a class="head-link" style=" text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF" href="#themes">View
-                        cars</a></li>
-                <li><a class="head-link" style=" text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF"
-                        href="#snippets">photos</a></li>
-
-            </ul>
-
-        </div>
-    </nav>
-</div>
 
 <div id="index-banner" class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
@@ -52,6 +32,7 @@
             <br><br>
         </div>
     </div>
+    </div>
     <div class="parallax"><img src="data:image/gif;base64,R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
             alt="Unsplashed background img 2"
             style="background-image: url(&quot;images/newpink.jpg&quot;); bottom: -342.162px; display: block;">
@@ -78,8 +59,8 @@
 
                 <div id="overflowTest">
 
-
-                    {{#each info}}
+<div id="myDIV">
+                    {{#each cars}}
                     <div class="row">
 
 
@@ -93,11 +74,11 @@
                                 <div class="card-image waves-effect waves-block waves-light">
                                     <div class="one ">
                                         <li><a href="about/model/{{model}}"><img class="someClass" src="{{photo}}"
-                                                    width="200" height="200"></a>{{model}}</li>
+                                                    width="200" height="200"></a></li>
                                     </div>
                                 </div>
                                 <div class="card-content">
-                                    <span class="card-title activator grey-text text-darken-4"><i
+                                    <span class="card-title activator grey-text text-darken-4">{{model}}<i
                                             class="mdi-navigation-more-vert right"></i></span>
                                     <br>
 
@@ -119,6 +100,7 @@
 
                     </div>
                     {{/each}}
+                    </div>
                 </div>
             </div>
         </div>
