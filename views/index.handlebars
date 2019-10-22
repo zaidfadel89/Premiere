@@ -1,10 +1,27 @@
 
 
+            <a style="" href="#" data-activates="mobile-demo" class="button-collapse"><i
+                    class="mdi-navigation-menu"></i></a>
+            <ul class="right hide-on-med-and-down">
+
+                <li><a class="head-link" style=" text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF" href="#themes">View
+                        cars</a></li>
+
+                <li><a class="head-link" style=" text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF"
+                        href="#snippets">photos</a></li>
+
+
+            </ul>
+
+        </div>
+    </nav>
+</div>
+>>
+
 <div id="index-banner" class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
         <div class="valign">
-            <br>
-            {{!-- &nbsp &nbsp &nbsp  --}}
+            {{!-- <br>
             <h1 class="header center titleFont" style="color: #ec407a "> &nbsp &nbsp
                 &nbsp &nbsp
                 &nbsp &nbsp &nbsp &nbsp
@@ -29,9 +46,10 @@
                 <a href="#themes" class="btn-large waves-effect waves-light head-link"
                     style="background-color: #ec407a">View themes</a>
             </div>
-            <br><br>
+            <br><br> --}}
         </div>
     </div>
+
     </div>
     <div class="parallax"><img src="data:image/gif;base64,R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
             alt="Unsplashed background img 2"
@@ -57,17 +75,41 @@
                 </nav>
 
 
-                <div id="overflowTest">
+</div>
+<br>
+
+<div class=" parallax"><img src="data:image/gif;base64,R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+        alt="Unsplashed background img 2"
+        style="background-image: url(&quot;images/newpink.jpg&quot;); bottom: -342.162px; display: block;">
 
 <div id="myDIV">
                     {{#each cars}}
                     <div class="row">
+    <div class="container section scrollspy" id="themes">
+        <div class="section">
+            <br>
+            <br>
+            <br>
 
 
 
-                        <!--col-->
+            <nav>
+                <div class=" nav-wrapper">
+                    <form>
+                        <div class="input-field">
+                            <input id="search" type="search">
+                            {{!-- <input id="myInput" type="text" placeholder="Search.."> --}}
+                            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                            <i class="material-icons">close</i>
+                        </div>
+                    </form>
+                </div>
+            </nav>
 
-                        <br>
+
+            <div id="overflowTest">
+
+
 
                         <div class="col s12 m6">
                             <div class="card">
@@ -82,39 +124,62 @@
                                             class="mdi-navigation-more-vert right"></i></span>
                                     <br>
 
-                                </div>
-                                <div class="card-reveal">
-                                    <span class="card-title grey-text text-darken-4">seal $ {{fuelCost08}}<i
-                                            class="mdi-navigation-close right">{{trany}}</i>
-                                        <p>hjhjhjhjhjhjhjhjhj</p>
-                                    </span>
+                {{#each info}}
+                <div class="row">
 
 
+
+                    <!--col-->
+
+                    <br>
+
+                    <div class="col s12 m6">
+                        <div class="card">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <div class="one ">
+                                    <li><a href="about/model/{{model}}"><img class="someClass" src="{{photo}}"
+                                                width="200" height="200"></a>{{model}}</li>
                                 </div>
                             </div>
-                            <!--card-->
+                            <div class="card-content">
+                                <span class="card-title activator grey-text text-darken-4"><i
+                                        class="mdi-navigation-more-vert right"></i></span>
+                                <br>
+
+                            </div>
+                            <div class="card-reveal">
+                                <span class="card-title grey-text text-darken-4">seal $ {{fuelCost08}}<i
+                                        class="mdi-navigation-close right">{{trany}}</i>
+                                    <p>hjhjhjhjhjhjhjhjhj</p>
+                                </span>
+
+
+                            </div>
                         </div>
-                        <!--col-->
-
-                        <!--row-->
-
+                        <!--card-->
                     </div>
                     {{/each}}
                     </div>
+                    <!--col-->
+
+                    <!--row-->
+
                 </div>
+                {{/each}}
             </div>
         </div>
+    </div>
 
 
 
 
 
 
-        <footer class="page-footer" style="background-color: #ec407a">
+    <footer class="page-footer" style="background-color: #ec407a">
 
-            <div class="footer-copyright">
-                <div class="container">
-                    <p>Copyright © Materialize themes</p>
-                </div>
+        <div class="footer-copyright">
+            <div class="container">
+                <p>Copyright © Materialize themes</p>
             </div>
-        </footer>
+        </div>
+    </footer>
