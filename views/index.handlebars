@@ -11,8 +11,10 @@
 
                 <li><a class="head-link" style=" text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF" href="#themes">View
                         cars</a></li>
+
                 <li><a class="head-link" style=" text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF"
                         href="#snippets">photos</a></li>
+
 
             </ul>
 
@@ -52,87 +54,92 @@
             <br><br>
         </div>
     </div>
-    <div class="parallax"><img src="data:image/gif;base64,R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-            alt="Unsplashed background img 2"
-            style="background-image: url(&quot;images/newpink.jpg&quot;); bottom: -342.162px; display: block;">
 
-        <div class="container section scrollspy" id="themes">
-            <div class="section">
-                <br>
-                <br>
-                <br>
+</div>
+<br>
 
-                <nav>
-                    <div class="nav-wrapper">
-                        <form>
-                            <div class="input-field">
-                                <input id="search" type="search">
-                                {{!-- <input id="myInput" type="text" placeholder="Search.."> --}}
-                                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                                <i class="material-icons">close</i>
-                            </div>
-                        </form>
-                    </div>
-                </nav>
+<div class=" parallax"><img src="data:image/gif;base64,R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+        alt="Unsplashed background img 2"
+        style="background-image: url(&quot;images/newpink.jpg&quot;); bottom: -342.162px; display: block;">
+
+    <div class="container section scrollspy" id="themes">
+        <div class="section">
+            <br>
+            <br>
+            <br>
 
 
-                <div id="overflowTest">
-
-
-                    {{#each info}}
-                    <div class="row">
-
-
-
-                        <!--col-->
-
-                        <br>
-
-                        <div class="col s12 m6">
-                            <div class="card">
-                                <div class="card-image waves-effect waves-block waves-light">
-                                    <div class="one ">
-                                        <li><a href="about/model/{{model}}"><img class="someClass" src="{{photo}}"
-                                                    width="200" height="200"></a>{{model}}</li>
-                                    </div>
-                                </div>
-                                <div class="card-content">
-                                    <span class="card-title activator grey-text text-darken-4"><i
-                                            class="mdi-navigation-more-vert right"></i></span>
-                                    <br>
-
-                                </div>
-                                <div class="card-reveal">
-                                    <span class="card-title grey-text text-darken-4">seal $ {{fuelCost08}}<i
-                                            class="mdi-navigation-close right">{{trany}}</i>
-                                        <p>hjhjhjhjhjhjhjhjhj</p>
-                                    </span>
-
-
-                                </div>
-                            </div>
-                            <!--card-->
+            <nav>
+                <div class=" nav-wrapper">
+                    <form>
+                        <div class="input-field">
+                            <input id="search" type="search">
+                            {{!-- <input id="myInput" type="text" placeholder="Search.."> --}}
+                            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                            <i class="material-icons">close</i>
                         </div>
-                        <!--col-->
-
-                        <!--row-->
-
-                    </div>
-                    {{/each}}
+                    </form>
                 </div>
+            </nav>
+
+
+            <div id="overflowTest">
+
+
+                {{#each info}}
+                <div class="row">
+
+
+
+                    <!--col-->
+
+                    <br>
+
+                    <div class="col s12 m6">
+                        <div class="card">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <div class="one ">
+                                    <li><a href="about/model/{{model}}"><img class="someClass" src="{{photo}}"
+                                                width="200" height="200"></a>{{model}}</li>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator grey-text text-darken-4"><i
+                                        class="mdi-navigation-more-vert right"></i></span>
+                                <br>
+
+                            </div>
+                            <div class="card-reveal">
+                                <span class="card-title grey-text text-darken-4">seal $ {{fuelCost08}}<i
+                                        class="mdi-navigation-close right">{{trany}}</i>
+                                    <p>hjhjhjhjhjhjhjhjhj</p>
+                                </span>
+
+
+                            </div>
+                        </div>
+                        <!--card-->
+                    </div>
+                    <!--col-->
+
+                    <!--row-->
+
+                </div>
+                {{/each}}
             </div>
         </div>
+    </div>
 
 
 
 
 
 
-        <footer class="page-footer" style="background-color: #ec407a">
+    <footer class="page-footer" style="background-color: #ec407a">
 
-            <div class="footer-copyright">
-                <div class="container">
-                    <p>Copyright © Materialize themes</p>
-                </div>
+        <div class="footer-copyright">
+            <div class="container">
+                <p>Copyright © Materialize themes</p>
             </div>
-        </footer>
+        </div>
+    </footer>
