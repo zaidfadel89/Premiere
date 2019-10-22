@@ -1,16 +1,23 @@
 // Import MySQL connection.
 var connection = require('../config/connection.js');
+function printQuestionMarks(num) {
+  var arr = [];
+  for (var i = 0; i < num; i++) {
+    arr.push('?');
+  }
+  return arr.toString();
+}
 
 // Object for all our SQL statement functions.
 var orm = {
-  selectAll: function(cb) {
-    connection.query('SELECT * FROM cars ', function(err, result) {
-      if (err) {
-        throw err;
-      }
-      cb(result);
-    });
-  },
+  // selectAll: function(cb) {
+  //   connection.query('SELECT * FROM cars ', function(err, result) {
+  //     if (err) {
+  //       throw err;
+  //     }
+  //     cb(result);
+  //   });
+  // },
 
   // <<<<<<< HEAD
   //   selectAllDealer: function(cb) {
@@ -20,7 +27,7 @@ var orm = {
   // =======
 
   selectAllinf: function(cb) {
-    connection.query('SELECT * FROM  info', function(err, result) {
+    connection.query('SELECT * FROM  cars', function(err, result) {
       if (err) {
         throw err;
       }
@@ -29,7 +36,7 @@ var orm = {
   },
   selectOne: function(model, cb) {
     // console.log('model: ' + model);
-    var query = 'SELECT * FROM  info where ?';
+    var query = 'SELECT * FROM  cars where ?';
     // console.log('query *****: ' + query);
     connection.query(query, { model: model }, function(err, result) {
       if (err) {
@@ -74,16 +81,13 @@ var orm = {
   // },
 
   selectAllDealer: function(cb) {
-    connection.query(
-      'SELECT * FROM cars JOIN info ON cars.model = info.model',
-      function(err, result) {
-        if (err) {
-          throw err;
-        }
-
-        cb(result);
+    connection.query('SELECT * FROM cars ', function(err, result) {
+      if (err) {
+        throw err;
       }
-    );
+
+      cb(result);
+    });
   },
 
   delete: function(table, condition, cb) {

@@ -9,7 +9,7 @@ if (process.env.JAWSDB_URL) {
     port: 3306,
     user: 'root',
     password: 'rootroot',
-    database: 'top_vehicle'
+    database: 'top_vehicles'
   });
 }
 

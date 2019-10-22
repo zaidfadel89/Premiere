@@ -22,7 +22,8 @@ router.post('/login', function(req, res) {
     login.push(newlogin);
     console.log('login array');
     console.log(login);
-    res.render('index');
+    // res.render('index');
+    res.redirect('/');
   });
 });
 router.get('/register', function(req, res) {
@@ -36,53 +37,57 @@ router.post('/register', function(req, res) {
       email: req.body.email,
       password: hash
     };
+    premiere.create(
+      ['username', 'email', 'password'],
+      [newUser.name, newUser.email, newUser.password],
+      function(result) {
+        console.log(result);
+        res.redirect('/login');
+      }
+    );
 
     console.log(newUser);
     users.push(newUser);
     console.log('users array');
     console.log(users);
-    res.render('login');
+    // res.render('login');
+    //res.redirect('/login');
   });
-
-  // console.log('hp ', hashedPassword);
-
-  // res.redirect('/login');
-
-  // try {
-  //   const hashedPassword = bcrypt.hash(req.body.password, 10);
-  //   // console.log('hp ', hashedPassword);
-  //   console.log('we are in the try');
-  //   var newUser = {
-  //     name: req.body.name,
-  //     email: req.body.email,
-  //     password: hashedPassword
-  //   };
-
-  //   users.push(newUser);
-
-  //   // users.push({
-  //   //   name: req.body.name,
-  //   //   email: req.body.email,
-  //   //   password: hashedPassword
-  //   // });
-  //   console.log('users array ', users);
-  //   res.redirect('/login');
-  // } catch {
-  //   res.redirect('/register');
-  // }
-  // })();
 });
-router.get('/', function(req, res) {
-  res.redirect('/index');
-  // res.render('index');
-});
+// console.log('hp ', hashedPassword);
+
+// res.redirect('/login');
+
+// try {
+//   const hashedPassword = bcrypt.hash(req.body.password, 10);
+//   // console.log('hp ', hashedPassword);
+//   console.log('we are in the try');
+//   var newUser = {
+//     name: req.body.name,
+//     email: req.body.email,
+//     password: hashedPassword
+//   };
+
+//   users.push(newUser);
+
+//   // users.push({
+//   //   name: req.body.name,
+//   //   email: req.body.email,
+//   //   password: hashedPassword
+//   // });
+//   console.log('users array ', users);
+//   res.redirect('/login');
+// } catch {
+//   res.redirect('/register');
+// }
+// })();
 
 // Index Page
-router.get('/index', function(req, res) {
+router.get('/', function(req, res) {
   premiere.selectAllinf(function(data) {
     // console.log(data);
 
-    var list = { info: data };
+    var list = { cars: data };
     //console.log(hbsObject);
     res.render('index', list);
   });
@@ -93,11 +98,44 @@ router.get('/about/model/:model', function(req, res) {
   premiere.selectOne(req.params.model, function(data) {
     // console.log('model name in routes: ' + req.params.model);
     // console.log('data in premier/models route: ' + JSON.stringify(data));
-    var hbsObject = { info: data };
+    var hbsObject = { cars: data };
     res.render('about', hbsObject);
   });
 });
 
+router.post('/dealer/add', function(req, res) {
+  console.log(JSON.stringify(req.body));
+  premiere.create(
+    [
+      'carId',
+      'make',
+      'model',
+      'engDscr',
+      'photo',
+      'fuelType1',
+      'VClass',
+      'trany',
+      'createdOn',
+      'fuelCost08'
+    ],
+    [
+      req.body.carId,
+      req.body.make,
+      req.body.model,
+      req.body.engDscr,
+      req.body.photo,
+      req.body.fuelType1,
+      req.body.VClass,
+      req.body.trany,
+      req.body.createdOn,
+      req.body.fuelCost08
+    ],
+    function(result) {
+      console.log('result after commenting: ' + result);
+      res.redirect('/dealer');
+    }
+  );
+});
 // <<<<<<< HEAD
 // router.get('/about', function(req, res) {
 //   premiere.selectAllinf(function(data) {

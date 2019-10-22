@@ -31,12 +31,12 @@ var premiere = {
   },
 
   delete: function(condition, cb) {
-    orm.delete('info', condition, function(res) {
+    orm.delete('cars', condition, function(res) {
       cb(res);
     });
   },
   create: function(cols, vals, cb) {
-    orm.create('users', cols, vals, function(res) {
+    orm.create('user', cols, vals, function(res) {
       cb(res);
     });
   }
