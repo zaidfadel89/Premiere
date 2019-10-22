@@ -1,7 +1,7 @@
 $(document).ready(function () {
   $("#search").on("keyup", function () {
     var value = $(this).val().toLowerCase();
-    $("#myList li").filter(function () {
+    $("#myDIV  *").filter(function () {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
     });
   });
@@ -39,14 +39,18 @@ $(function() {
 $(".create-form").on("submit", function(event) {
   // Make sure to preventDefault on a submit event.
   event.preventDefault();
+  var newinfo = {
+    name: $("#ca").val().trim(),
+    
+  };
 
   // Send the POST request.
-  $.ajax("/dealer/create", {
+  $.ajax("/about/model", {
     type: "POST",
-    data: tableall
+    data: newinfo
   }).then(
     function() {
-      console.log("created new cat");
+      console.log("created new ");
       // Reload the page to get the updated list
       location.reload();
     }

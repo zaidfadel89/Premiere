@@ -4,15 +4,15 @@
 <div class="container section scrollspy" id="themes">
     <div class="section">
         <div id="overflowTest">
-            {{#each info}}
+            {{#each cars}}
 
 
-            <table>
+            <table class="striped">
                 <tr>
                     <td>
                         <img class="someClass" src="{{photo}}" width="400" height="400">
-
-
+                     
+                      
                     </td>
                     <td>
                         <table>
@@ -72,10 +72,22 @@
                 </tr>
 
             </table>
+<form  action="/about/model" method="POST">
 
+                             <div class="input-field col s6">
+        <input name="comment" id="comment" type="text" class="validate">
+        <label for="comment">id</label>
+      </div>
+
+
+
+                           <button class="waves-effect waves-light btn" type="submit">Add car</button>
+                        </form>
 
             {{/each}}
+            
 
+  
         </div>
     </div>
 </div>

@@ -2,11 +2,7 @@
 var orm = require('../config/orm.js');
 
 var premiere = {
-  selectAll: function(cb) {
-    orm.selectAll(function(res) {
-      cb(res);
-    });
-  },
+  
 
   selectAllinf: function(cb) {
     orm.selectAllinf(function(res) {
@@ -29,11 +25,27 @@ var premiere = {
       cb(res);
     });
   },
-
-  delete: function(condition, cb) {
-    orm.delete('info', condition, function(res) {
+  insertComment: function(comment, cb) {
+    orm.insertComment(comment, function(res) {
       cb(res);
     });
-  }
+  },
+
+  delete: function(condition, cb) {
+    orm.delete('cars', condition, function(res) {
+      cb(res);
+    });
+  },
+  // insertDealer: function(all, cb) {
+  //   orm.insertDealer( all, function(res) {
+  //     cb(res);
+  //   });
+  // }
+  create: function(cols, vals, cb) {
+    orm.create("cars", cols, vals, function(res) {
+      cb(res);
+    });
+  },
+
 };
 module.exports = premiere;

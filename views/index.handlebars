@@ -1,9 +1,4 @@
-<div id="navbar" class="navbar-fixed scrollspy">
-    <nav class="pink lighten-1">
-        <div class="nav-wrapper container">
-            <div class="container"> <a href="#navbar" class="brand-logo mLogo" style="margin-top: 15px;  color: white;
-  text-shadow: 5px 5px 6px black, 0 0 25px blue, 0 0 5px darkblue"> &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
-                    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Premiere</a></div>
+
 
             <a style="" href="#" data-activates="mobile-demo" class="button-collapse"><i
                     class="mdi-navigation-menu"></i></a>
@@ -21,6 +16,7 @@
         </div>
     </nav>
 </div>
+>>
 
 <div id="index-banner" class="parallax-container valign-wrapper">
     <div class="section no-pad-bot">
@@ -54,6 +50,31 @@
         </div>
     </div>
 
+    </div>
+    <div class="parallax"><img src="data:image/gif;base64,R0lGODlhAQABAIABAP///wAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+            alt="Unsplashed background img 2"
+            style="background-image: url(&quot;images/newpink.jpg&quot;); bottom: -342.162px; display: block;">
+
+        <div class="container section scrollspy" id="themes">
+            <div class="section">
+                <br>
+                <br>
+                <br>
+
+                <nav>
+                    <div class="nav-wrapper">
+                        <form>
+                            <div class="input-field">
+                                <input id="search" type="search">
+                                {{!-- <input id="myInput" type="text" placeholder="Search.."> --}}
+                                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                                <i class="material-icons">close</i>
+                            </div>
+                        </form>
+                    </div>
+                </nav>
+
+
 </div>
 <br>
 
@@ -61,11 +82,15 @@
         alt="Unsplashed background img 2"
         style="background-image: url(&quot;images/newpink.jpg&quot;); bottom: -342.162px; display: block;">
 
+<div id="myDIV">
+                    {{#each cars}}
+                    <div class="row">
     <div class="container section scrollspy" id="themes">
         <div class="section">
             <br>
             <br>
             <br>
+
 
 
             <nav>
@@ -84,6 +109,20 @@
 
             <div id="overflowTest">
 
+
+
+                        <div class="col s12 m6">
+                            <div class="card">
+                                <div class="card-image waves-effect waves-block waves-light">
+                                    <div class="one ">
+                                        <li><a href="about/model/{{model}}"><img class="someClass" src="{{photo}}"
+                                                    width="200" height="200"></a></li>
+                                    </div>
+                                </div>
+                                <div class="card-content">
+                                    <span class="card-title activator grey-text text-darken-4">{{model}}<i
+                                            class="mdi-navigation-more-vert right"></i></span>
+                                    <br>
 
                 {{#each info}}
                 <div class="row">
@@ -118,6 +157,8 @@
                             </div>
                         </div>
                         <!--card-->
+                    </div>
+                    {{/each}}
                     </div>
                     <!--col-->
 
