@@ -1,15 +1,15 @@
 // Set up MySQL connection.
 var mysql = require('mysql');
-
+var connection;
 if (process.env.JAWSDB_URL) {
-  var connection = mysql.createConnection(process.env.JAWSDB_URL);
+  connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
   connection = mysql.createConnection({
-    host: 'd6q8diwwdmy5c9k9.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+    host: 'localhost',
     port: 3306,
-    user: 'vv5uu5prndgku1un',
-    password: 'l8psj3qku4txj2zm',
-    database: 'zwzbxnwszwd74umz'
+    user: 'root',
+    password: 'rootroot',
+    database: 'top_vehicle'
   });
 }
 
