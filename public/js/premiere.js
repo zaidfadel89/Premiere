@@ -76,44 +76,60 @@ $(".delete").on("click", function(event) {
 
 
 // Slideshow
-var myIndex = 0;
-carousel();
+// var myIndex = 0;
+// carousel();
 
-function carousel() {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
-  }
-  myIndex++;
-  if (myIndex > x.length) {myIndex = 1}    
-  x[myIndex-1].style.display = "block";  
-  setTimeout(carousel, 5000); // Change image every 2 seconds
-}
-var slideIndex = 1;
-showDivs(slideIndex);
+// function carousel() {
+//   var i;
+//   var x = document.getElementsByClassName("mySlides");
+//   for (i = 0; i < x.length; i++) {
+//     x[i].style.display = "none";  
+//   }
+//   myIndex++;
+//   if (myIndex > x.length) {myIndex = 1}    
+//   x[myIndex-1].style.display = "block";  
+//   setTimeout(carousel, 3000); // Change image every 2 seconds
+// }
+// var slideIndex = 1;
+// showDivs(slideIndex);
 
-function plusDivs(n) {
-  showDivs(slideIndex += n);
-}
+// function plusDivs(n) {
+//   showDivs(slideIndex += n);
+// }
 
-function currentDiv(n) {
-  showDivs(slideIndex = n);
-}
+// function currentDiv(n) {
+//   showDivs(slideIndex = n);
+// }
 
-function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
-  if (n > x.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";  
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" w3-white", "");
-  }
-  x[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " w3-white";
-  setTimeout(carousel, 5000); // Change image every 2 seconds
-}
+// function showDivs(n) {
+//   var i;
+//   var x = document.getElementsByClassName("mySlides");
+//   var dots = document.getElementsByClassName("demo");
+//   if (n > x.length) {slideIndex = 1}
+//   if (n < 1) {slideIndex = x.length}
+//   for (i = 0; i < x.length; i++) {
+//     x[i].style.display = "none";  
+//   }
+//   for (i = 0; i < dots.length; i++) {
+//     dots[i].className = dots[i].className.replace(" w3-white", "");
+//   }
+//   x[slideIndex-1].style.display = "block";  
+//   dots[slideIndex-1].className += " w3-white";
+//   setTimeout(carousel, 3000); // Change image every 2 seconds
+// }
+
+
+
+// Or with jQuery
+
+$(document).ready(function(){
+  $('.slider').slider({full_width: true});
+});
+
+function isNumber(evt) {
+  var iKeyCode = (evt.which) ? evt.which : evt.keyCode
+  if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
+      return false;
+
+  return true;
+}    

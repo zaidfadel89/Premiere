@@ -7,9 +7,9 @@ const users = [];
 //Setup Routes
 
 // Index Redirect
-
 router.get('/login', function(req, res) {
   res.render('login');
+
 });
 router.post('/login', function(req, res) {
   bcrypt.hash(req.body.password, 10, function(err, hash) {
@@ -18,10 +18,12 @@ router.post('/login', function(req, res) {
       password: hash
     };
 
+
     console.log(newlogin);
     login.push(newlogin);
     console.log('login array');
     console.log(login);
+
     // res.render('index');
     res.redirect('/index');
   });
@@ -30,6 +32,7 @@ router.get('/register', function(req, res) {
   res.render('register');
 });
 router.post('/register', function(req, res) {
+
   // (async () => {
   bcrypt.hash(req.body.password, 10, function(err, hash) {
     var newUser = {
@@ -37,7 +40,7 @@ router.post('/register', function(req, res) {
       email: req.body.email,
       password: hash
     };
-    premiere.create(
+  premiere.create(
       ['username', 'email', 'password'],
       [newUser.name, newUser.email, newUser.password],
       function(result) {
@@ -50,9 +53,6 @@ router.post('/register', function(req, res) {
     users.push(newUser);
     console.log('users array');
     console.log(users);
-    // res.render('login');
-    //res.redirect('/login');
-  });
 });
 // console.log('hp ', hashedPassword);
 
