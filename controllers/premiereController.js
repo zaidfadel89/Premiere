@@ -7,9 +7,9 @@ const users = [];
 //Setup Routes
 
 // Index Redirect
-
 router.get('/login', function(req, res) {
   res.render('login.handlebars');
+
 });
 router.post('/login', function(req, res) {
   bcrypt.hash(req.body.password, 10, function(err, hash) {
@@ -18,10 +18,12 @@ router.post('/login', function(req, res) {
       password: hash
     };
 
+
     console.log(newlogin);
     login.push(newlogin);
     console.log('login array');
     console.log(login);
+
     // res.render('index');
     res.redirect('/');
   });
@@ -29,15 +31,16 @@ router.post('/login', function(req, res) {
 router.get('/register', function(req, res) {
 
   res.render('register.handlebars');
-});
-router.post('/login', function(req, res) {
+ });
+ router.post('/register', function(req, res) {
   // (async () => {
   bcrypt.hash(req.body.password, 10, function(err, hash) {
-    var newlogin = {
+    var newUser = {
       name: req.body.name,
       email: req.body.email,
       password: hash
     };
+
 // <<<<<<< zaid4
     premiere.create(
       ['username', 'email', 'password'],
@@ -52,22 +55,6 @@ router.post('/login', function(req, res) {
     users.push(newUser);
     console.log('users array');
     console.log(users);
-    // res.render('login');
-    //res.redirect('/login');
-  });
-// =======
-
-//     // console.log(newUser);
-//     login.push(newlogin);
-//     console.log('users array');
-//     console.log(users);
-//     res.redirect('/');
-//   });
-
-  
-// });
-
-
  
 // router.get('/', function(req, res) {
 //   res.redirect('/index');

@@ -8,12 +8,12 @@
             {{#each cars}}
 
 
-            <table >
+            <table>
                 <tr>
                     <td>
                         <img class="someClass" src="{{photo}}" width="400" height="400">
-                     
-                      
+
+
                     </td>
                     <td>
                         <table class="striped">
@@ -56,7 +56,7 @@
                             <tr>
                                 <td>
                                     <a class="waves-effect waves-light btn"
-                                        href="https://www.{{make}}.com/?search={{model}}">For Sales</a>
+                                        href="https://www.{{make}}.com/?{{model}}">For Sales</a>
                                 </td>
 
                             </tr>
@@ -72,9 +72,9 @@
                 </td>
                 </tr>
 
-            </table> 
+            </table>
 
-            {{comment}}
+            {{!-- {{comment}}
 <form  action="/add/comment" method="POST">
 
                              <div class="input-field col s6">
@@ -85,12 +85,12 @@
 
 
                            <button class="waves-effect waves-light btn" type="submit">Add car</button>
-                        </form>
+                        </form> --}}
 
             {{/each}}
-            
 
-  
+
+
         </div>
     </div>
 </div>
