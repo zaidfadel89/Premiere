@@ -9,7 +9,7 @@ const users = [];
 // Index Redirect
 
 router.get('/login', function(req, res) {
-  res.render('login.handlebars');
+  res.render('login');
 });
 router.post('/login', function(req, res) {
   bcrypt.hash(req.body.password, 10, function(err, hash) {
@@ -23,22 +23,20 @@ router.post('/login', function(req, res) {
     console.log('login array');
     console.log(login);
     // res.render('index');
-    res.redirect('/');
+    res.redirect('/index');
   });
 });
 router.get('/register', function(req, res) {
-
-  res.render('register.handlebars');
+  res.render('register');
 });
-router.post('/login', function(req, res) {
+router.post('/register', function(req, res) {
   // (async () => {
   bcrypt.hash(req.body.password, 10, function(err, hash) {
-    var newlogin = {
+    var newUser = {
       name: req.body.name,
       email: req.body.email,
       password: hash
     };
-// <<<<<<< zaid4
     premiere.create(
       ['username', 'email', 'password'],
       [newUser.name, newUser.email, newUser.password],
@@ -55,24 +53,6 @@ router.post('/login', function(req, res) {
     // res.render('login');
     //res.redirect('/login');
   });
-// =======
-
-//     // console.log(newUser);
-//     login.push(newlogin);
-//     console.log('users array');
-//     console.log(users);
-//     res.redirect('/');
-//   });
-
-  
-// });
-
-
- 
-// router.get('/', function(req, res) {
-//   res.redirect('/index');
-//   // res.render('index');
-// >>>>>>> master
 });
 // console.log('hp ', hashedPassword);
 
@@ -104,6 +84,9 @@ router.post('/login', function(req, res) {
 
 // Index Page
 router.get('/', function(req, res) {
+  res.redirect('/register');
+});
+router.get('/index', function(req, res) {
   premiere.selectAllinf(function(data) {
     // console.log(data);
 
@@ -123,96 +106,71 @@ router.get('/about/model/:model', function(req, res) {
   });
 });
 
-// <<<<<<< zaid4
-// router.post('/dealer/add', function(req, res) {
-//   console.log(JSON.stringify(req.body));
-//   premiere.create(
-//     [
-//       'carId',
-//       'make',
-//       'model',
-//       'engDscr',
-//       'photo',
-//       'fuelType1',
-//       'VClass',
-//       'trany',
-//       'createdOn',
-//       'fuelCost08'
-//     ],
-//     [
-//       req.body.carId,
-//       req.body.make,
-//       req.body.model,
-//       req.body.engDscr,
-//       req.body.photo,
-//       req.body.fuelType1,
-//       req.body.VClass,
-//       req.body.trany,
-//       req.body.createdOn,
-//       req.body.fuelCost08
-//     ],
-//     function(result) {
-//       console.log('result after commenting: ' + result);
-//       res.redirect('/dealer');
-//     }
-//   );
+router.post('/dealer/add', function(req, res) {
+  console.log(JSON.stringify(req.body));
+  premiere.create(
+    [
+      'carId',
+      'make',
+      'model',
+      'engDscr',
+      'photo',
+      'fuelType1',
+      'VClass',
+      'trany',
+      'createdOn',
+      'fuelCost08'
+    ],
+    [
+      req.body.carId,
+      req.body.make,
+      req.body.model,
+      req.body.engDscr,
+      req.body.photo,
+      req.body.fuelType1,
+      req.body.VClass,
+      req.body.trany,
+      req.body.createdOn,
+      req.body.fuelCost08
+    ],
+    function(result) {
+      console.log('result after commenting: ' + result);
+      res.redirect('/dealer');
+    }
+  );
+});
+// <<<<<<< HEAD
+// router.get('/about', function(req, res) {
+//   premiere.selectAllinf(function(data) {
+//     var hbsObject = { info: data };
+//     res.render('about', hbsObject);
+//   });
 // });
-// // <<<<<<< HEAD
-// // router.get('/about', function(req, res) {
-// //   premiere.selectAllinf(function(data) {
-// //     var hbsObject = { info: data };
-// //     res.render('about', hbsObject);
-// //   });
-// // });
 
-// // // dealer
-// // router.get('/dealer', function(req, res) {
-// //   premiere.selectAllDealer(function(data) {
-// //     var hbsObject = [{ info: data }, { cars: data }];
-// //     //console.log(hbsObject);
-// // =======
+// // dealer
+// router.get('/dealer', function(req, res) {
+//   premiere.selectAllDealer(function(data) {
+//     var hbsObject = [{ info: data }, { cars: data }];
+//     //console.log(hbsObject);
 // =======
 
-
-
-// >>>>>>> master
-
 // dealer
-// router.post('/dealer/add', function(req, res) {
-//   console.log("user all: " +req.body.all);
-//     premiere.insertDealer(req.body.all, function(results){
-//       console.log("result after commenting: " +results);
-//       res.redirect("dealer")
-//     })
-//   })
-router.post("/dealer/add", function(req, res) {
-  console.log(JSON.stringify(req.body))
-  premiere.createcar([
-    "carId", "make", "model", "engDscr", "photo", "fuelType1", "VClass", "trany", "createdOn", "fuelCost08"
-  ], [
-    req.body.carId, req.body.make, req.body.model, req.body.engDscr, req.body.photo, req.body.fuelType1, req.body.VClass, req.body.trany, req.body.createdOn, req.body.fuelCost08
-  ], function(result) {
-    console.log("result after commenting: " + result);
-    res.redirect("/dealer")
-  });
-});
-
-
 router.get('/dealer', function(req, res) {
-  premiere.selectAllinf(function(data) {
-    var hbsObject = {  cars: data };
+  premiere.selectAllDealer(function(data) {
+    var hbsObject = { info: data, cars: data };
     //console.log(hbsObject);
     res.render('dealer', hbsObject);
   });
 });
 
-router.post("/add/comment", function(req, res){
-  console.log("user comment: " +req.body.comment);
-  premiere.insertComment("comment", req.body.comment , function(results){
-    console.log("result after commenting: " +results);
-    res.redirect('about')
-  })
-})
+router.post('/dealer/create', function(req, res) {
+  premiere.insertAll(req.body.model, function() {
+    var hbsObject = { tableall: data };
+    console.log('model name in routes: ' + req.body.model);
+    console.log('data in premier/models route: ' + JSON.stringify(data));
+    res.render('dealer', hbsObject);
+  });
+});
 
 router.delete('/dealer/create/:id', function(req, res) {
   var condition = 'id = ' + req.params.id;
