@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var premiere = require('../models/premiere.js');
 var bcrypt = require('bcrypt');
-
+const login = [];
 const users = [];
 //Setup Routes
 
@@ -11,28 +11,31 @@ const users = [];
 router.get('/login', function(req, res) {
   res.render('login.handlebars');
 });
-router.post('/login', function(req, res) {});
-router.get('/register', function(req, res) {
+// router.post('/login', function(req, res) {});
+router.get('/login', function(req, res) {
   res.render('register.handlebars');
 });
-router.post('/register', function(req, res) {
+router.post('/login', function(req, res) {
   // (async () => {
   bcrypt.hash(req.body.password, 10, function(err, hash) {
-    var newUser = {
+    var newlogin = {
       name: req.body.name,
       email: req.body.email,
       password: hash
     };
 
     // console.log(newUser);
-    users.push(newUser);
+    login.push(newlogin);
     console.log('users array');
     console.log(users);
-    res.render('login');
+    res.redirect('/');
   });
 
   
 });
+
+
+ 
 router.get('/', function(req, res) {
   res.redirect('/index');
   // res.render('index');
@@ -73,7 +76,7 @@ router.get('/about/model/:model', function(req, res) {
 //   })
 router.post("/dealer/add", function(req, res) {
   console.log(JSON.stringify(req.body))
-  premiere.create([
+  premiere.createcar([
     "carId", "make", "model", "engDscr", "photo", "fuelType1", "VClass", "trany", "createdOn", "fuelCost08"
   ], [
     req.body.carId, req.body.make, req.body.model, req.body.engDscr, req.body.photo, req.body.fuelType1, req.body.VClass, req.body.trany, req.body.createdOn, req.body.fuelCost08
@@ -92,9 +95,9 @@ router.get('/dealer', function(req, res) {
   });
 });
 
-router.post("/about/model/:model", function(req, res){
+router.post("/add/comment", function(req, res){
   console.log("user comment: " +req.body.comment);
-  premiere.insertComment(req.body.comment, function(results){
+  premiere.insertComment("comment", req.body.comment , function(results){
     console.log("result after commenting: " +results);
     res.redirect('about')
   })

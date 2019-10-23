@@ -39,7 +39,7 @@ var orm = {
 
   selectAllDealer: function(cb) {
     connection.query(
-      'SELECT * FROM cars JOIN info ON cars.model = info.model',
+      'SELECT * FROM cars JOIN info ON cars.id = info.id',
       function(err, result) {
         if (err) {
           throw err;
@@ -49,36 +49,9 @@ var orm = {
       }
     );
   },
-  insertComment: function (comment, cb) {
-    connection.query("INSERT INTO info set ?",
-      {
-        comment: comment,
-        
-      }, function (err, result) {
-        if (err) {
-          throw err;
-        }
-
-        cb(result);
-      });
-  },
-  // insertDealer: function (all, cb) {
-  //   var createdOn = new Date();
-  //   var all =   {
-  //     id: id,
-  //     createdOn: createdOn,
-  //     make: make,
-  //     model: model,
-  //     photo: photo,
-  //     eng_dscr: eng_dscr,
-  //     VClass: VClass,
-  //     createdOn: createdOn,
-  //     trany: trany,
-  //     fuelCost08: fuelCost08,
-  
-  //   }
-  //   connection.query("INSERT INTO cars set ?", all ,
-  //    function (err, result) {
+  // insertComment: function (comment, cb) {
+  //   connection.query("SELECT "+comment+ "FROM cars INNER JOIN info ON cars.id = info.carId",
+  //      function (err, result) {
   //       if (err) {
   //         throw err;
   //       }
@@ -86,8 +59,9 @@ var orm = {
   //       cb(result);
   //     });
   // },
+     
 
-  create: function(table, cols, vals, cb) {
+  createcar: function(table, cols, vals, cb) {
     var queryString = "INSERT INTO " + table;
 
     queryString += " (";
