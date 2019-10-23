@@ -7,33 +7,50 @@ const users = [];
 //Setup Routes
 
 // Index Redirect
-
 router.get('/login', function(req, res) {
   res.render('login.handlebars');
-});
-// router.post('/login', function(req, res) {});
-router.get('/login', function(req, res) {
-  res.render('register.handlebars');
-});
-router.post('/login', function(req, res) {
-  // (async () => {
+ });
+ router.post('/login', function(req, res) {
   bcrypt.hash(req.body.password, 10, function(err, hash) {
     var newlogin = {
+      email: req.body.email,
+      password: hash
+    };
+    console.log(newlogin);
+    login.push(newlogin);
+    console.log('login array');
+    console.log(login);
+    // res.render(‘index’);
+    res.redirect('/');
+  });
+ });
+ router.get('/register', function(req, res) {
+  res.render('register.handlebars');
+ });
+ router.post('/register', function(req, res) {
+  // (async () => {
+  bcrypt.hash(req.body.password, 10, function(err, hash) {
+    var newUser = {
       name: req.body.name,
       email: req.body.email,
       password: hash
     };
-
-    // console.log(newUser);
-    login.push(newlogin);
+    premiere.create(
+      ['username', 'email', 'password'],
+      [newUser.name, newUser.email, newUser.password],
+      function(result) {
+        console.log(result);
+        res.redirect('/login');
+      }
+    );
+    console.log(newUser);
+    users.push(newUser);
     console.log('users array');
     console.log(users);
-    res.redirect('/');
+    // res.render(‘login’);
+    //res.redirect(‘/login’);
   });
-
-  
-});
-
+ });
 
  
 router.get('/', function(req, res) {

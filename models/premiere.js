@@ -46,6 +46,13 @@ var premiere = {
       cb(res);
     });
   },
+  create: function(cols, vals, cb) {
+    orm.create('user', cols, vals, function(res) {
+      cb(res);
+    });
+  }
+
+  
 
 };
 module.exports = premiere;
