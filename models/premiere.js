@@ -25,11 +25,11 @@ var premiere = {
       cb(res);
     });
   },
-  insertComment: function(comment, cb) {
-    orm.insertComment(comment, function(res) {
-      cb(res);
-    });
-  },
+  // insertComment: function(comment, cb) {
+  //   orm.insertComment(comment, function(res) {
+  //     cb(res);
+  //   });
+  // },
 
   delete: function(condition, cb) {
     orm.delete('cars', condition, function(res) {
@@ -41,8 +41,8 @@ var premiere = {
   //     cb(res);
   //   });
   // }
-  create: function(cols, vals, cb) {
-    orm.create("cars", cols, vals, function(res) {
+  createcar: function(cols, vals, cb) {
+    orm.createcar("cars", cols, vals, function(res) {
       cb(res);
     });
   },

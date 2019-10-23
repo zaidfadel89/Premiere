@@ -85,18 +85,20 @@
     </div>
   </nav>
 <div id="overflowTest">
-  <div id="myDIV">
+ <div class="myDIV">
+   <div class="row">
   {{#each cars }}
-
+  <div class="col s12 m4">
    
   <li> 
      <img class="someClass" src="{{photo}}" width="200"
-        height="200"></li><li>{{model}}</li><button class="delete waves-effect waves-light btn" data-id="{{this.id}}">DELETE!</button>
-    
+        height="200">{{model}}<button class="delete waves-effect waves-light btn" data-id="{{this.id}}">DELETE!</button>
+    </li>
   <br>
-
+</div>
 
 {{/each}}
+</div>
 </div>
 </div>
 </div>
