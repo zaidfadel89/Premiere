@@ -30,4 +30,3 @@ Sell,buy, and rent on the same site.
   ![Image of show](./public/img/show.png)
 - Dealer Page
   ![addCarPage](./public/img/addCar.png)
-  [Live link](http://github.com)
