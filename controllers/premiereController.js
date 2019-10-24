@@ -9,8 +9,8 @@ const users = [];
 // Index Redirect
 router.get('/login', function(req, res) {
   res.render('login.handlebars');
- });
- router.post('/login', function(req, res) {
+});
+router.post('/login', function(req, res) {
   bcrypt.hash(req.body.password, 10, function(err, hash) {
     var newlogin = {
       email: req.body.email,
@@ -21,13 +21,13 @@ router.get('/login', function(req, res) {
     console.log('login array');
     console.log(login);
     // res.render(‘index’);
-    res.redirect('/');
+    res.redirect('index');
   });
- });
- router.get('/register', function(req, res) {
+});
+router.get('/register', function(req, res) {
   res.render('register.handlebars');
- });
- router.post('/register', function(req, res) {
+});
+router.post('/register', function(req, res) {
   // (async () => {
   bcrypt.hash(req.body.password, 10, function(err, hash) {
     var newUser = {
@@ -50,11 +50,10 @@ router.get('/login', function(req, res) {
     // res.render(‘login’);
     //res.redirect(‘/login’);
   });
- });
+});
 
- 
 router.get('/', function(req, res) {
-  res.redirect('/index');
+  res.redirect('login');
   // res.render('index');
 });
 
@@ -79,10 +78,6 @@ router.get('/about/model/:model', function(req, res) {
   });
 });
 
-
-
-
-
 // dealer
 // router.post('/dealer/add', function(req, res) {
 //   console.log("user all: " +req.body.all);
@@ -91,34 +86,55 @@ router.get('/about/model/:model', function(req, res) {
 //       res.redirect("dealer")
 //     })
 //   })
-router.post("/dealer/add", function(req, res) {
-  console.log(JSON.stringify(req.body))
-  premiere.createcar([
-    "carId", "make", "model", "engDscr", "photo", "fuelType1", "VClass", "trany", "createdOn", "fuelCost08"
-  ], [
-    req.body.carId, req.body.make, req.body.model, req.body.engDscr, req.body.photo, req.body.fuelType1, req.body.VClass, req.body.trany, req.body.createdOn, req.body.fuelCost08
-  ], function(result) {
-    console.log("result after commenting: " + result);
-    res.redirect("/dealer")
-  });
+router.post('/dealer/add', function(req, res) {
+  console.log(JSON.stringify(req.body));
+  premiere.createcar(
+    [
+      'carId',
+      'make',
+      'model',
+      'engDscr',
+      'photo',
+      'fuelType1',
+      'VClass',
+      'trany',
+      'createdOn',
+      'fuelCost08'
+    ],
+    [
+      req.body.carId,
+      req.body.make,
+      req.body.model,
+      req.body.engDscr,
+      req.body.photo,
+      req.body.fuelType1,
+      req.body.VClass,
+      req.body.trany,
+      req.body.createdOn,
+      req.body.fuelCost08
+    ],
+    function(result) {
+      console.log('result after commenting: ' + result);
+      res.redirect('/dealer');
+    }
+  );
 });
-
 
 router.get('/dealer', function(req, res) {
   premiere.selectAllinf(function(data) {
-    var hbsObject = {  cars: data };
+    var hbsObject = { cars: data };
     //console.log(hbsObject);
     res.render('dealer', hbsObject);
   });
 });
 
-router.post("/add/comment", function(req, res){
-  console.log("user comment: " +req.body.comment);
-  premiere.insertComment("comment", req.body.comment , function(results){
-    console.log("result after commenting: " +results);
-    res.redirect('about')
-  })
-})
+router.post('/add/comment', function(req, res) {
+  console.log('user comment: ' + req.body.comment);
+  premiere.insertComment('comment', req.body.comment, function(results) {
+    console.log('result after commenting: ' + results);
+    res.redirect('about');
+  });
+});
 
 router.delete('/dealer/create/:id', function(req, res) {
   var condition = 'id = ' + req.params.id;
