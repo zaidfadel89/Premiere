@@ -14,7 +14,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Handlebars
 var exphbs = require('express-handlebars');
-app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+// app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.engine('.hbs', exphbs.engine({ extname: '.hbs', defaultLayout: "main"}));
+
 app.set('view engine', 'handlebars');
 var router = require('./controllers/premiereController.js');
 app.use('/', router);

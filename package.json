@@ -10,21 +10,21 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^3.0.6",
+    "bcrypt": "^5.1.0",
     "body-parser": "^1.19.0",
     "bulma": "^0.8.0",
     "express": "^4.17.1",
     "express-flash": "0.0.2",
-    "express-handlebars": "^3.1.0",
+    "express-handlebars": "^7.0.7",
     "express-session": "^1.17.0",
-    "mailer": "^0.6.7",
+    "mailer": "^0.6.6",
     "method-override": "^3.0.0",
     "mysql": "^2.17.1",
-    "passport": "^0.4.0",
+    "passport": "^0.6.0",
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
-    "gulp": "^4.0.2"
+    "gulp": "^3.9.1"
   },
   "description": "HI how are you",
   "repository": {
@@ -34,5 +34,5 @@
   "bugs": {
     "url": "https://github.com/zaidfadel/newProject-2/issues"
   },
-  "homepage": "https://github.com/zaidfadel/newProject-2#readme"
+  "homepage": "https://github.com/zaidfadel89/newProject-2#readme"
 }
