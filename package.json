@@ -1,8 +1,11 @@
 {
   "name": "newprohect2-",
+  "homepage": "https://zaidfadel89.github.io/Premiere",
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
@@ -24,6 +27,7 @@
     "passport-local": "^1.0.0"
   },
   "devDependencies": {
+    "gh-pages": "^5.0.0",
     "gulp": "^3.9.1"
   },
   "description": "HI how are you",
@@ -33,6 +37,5 @@
   },
   "bugs": {
     "url": "https://github.com/zaidfadel/newProject-2/issues"
-  },
-  "homepage": "https://github.com/zaidfadel89/newProject-2#readme"
+  }
 }
